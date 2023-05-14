@@ -20,3 +20,9 @@ struct sName{
 }
 sName[] public structsName;
 structsName.push();
+
+event eName(uint x, uint y, uint result);
+emit eName(_x, _y, result);
+
+keccak256(abi.encodePacked(_str));???
+
