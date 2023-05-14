@@ -1,0 +1,22 @@
+pragma solidity >=0.5.0 <0.6.0;
+
+contract HelloWorld {
+
+}
+
+uint, int, string
++, -, /, *, power: **, %
+
+unit[n] arrName;
+uint[] dynamicArr;
+
+function fName( uint memory _argName, uint _argName2) public/private returns (string memory){
+
+}
+
+struct sName{
+    uint varN;
+    string varN2;
+}
+sName[] public structsName;
+structsName.push();
