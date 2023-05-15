@@ -25,4 +25,11 @@ event eName(uint x, uint y, uint result);
 emit eName(_x, _y, result);
 
 keccak256(abi.encodePacked(_str));???
+////////
+
+mapping (keydatatype => valuedatatype) mapName;
+mapName[key] = value;
+value = mapName[key];
+
+msg.sender
 
