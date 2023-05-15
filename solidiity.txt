@@ -36,4 +36,6 @@ msg.sender, gives address of th person/account who called the function
 require, function will throw an error and stop executing if some condition is not true:
 require(condition);
 
-
+inheritance
+contract subcontractName is parentcontractName{
+}
