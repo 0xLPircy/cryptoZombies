@@ -39,3 +39,9 @@ require(condition);
 inheritance
 contract subcontractName is parentcontractName{
 }
+
+importing
+import "filepath.sol";
+
+Storage: stored permanently on the blockchain
+Memory: temporary, erased b/w external function calls
