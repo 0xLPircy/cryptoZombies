@@ -53,3 +53,9 @@ Memory: temporary, erased b/w external function calls
 
 Interface (to interact with other contract)
 looks like defining a contract, with a few differences. only declaring the functions we want to interact with.
+contract InterfaceName{
+    funtion functionName (uint arg) public return (type);
+}
+1: address tobecalledcontractaddress = 0xabdiuhfiuwehf32cd32;
+2: InterfaceName InterfacePointer = InterfaceName(tobecalledcontractaddress);
+3: InterfacePointer.functionName(arg);
