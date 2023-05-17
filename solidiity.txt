@@ -50,3 +50,6 @@ import "filepath.sol";
 
 Storage: stored permanently on the blockchain
 Memory: temporary, erased b/w external function calls
+
+Interface (to interact with other contract)
+looks like defining a contract, with a few differences. only declaring the functions we want to interact with.
