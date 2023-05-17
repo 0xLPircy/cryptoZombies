@@ -10,9 +10,14 @@ uint, int, string
 unit[n] arrName;
 uint[] dynamicArr;
 
-function fName( uint memory _argName, uint _argName2) public/private returns (string memory){
+function fName( uint memory _argName, uint _argName2) public/private/internal/external returns (string memory){
 
 }
+
+public: anyone
+private: perticular contract only
+internal: private+inherit contracts too
+external: ONLY outside of contract
 
 struct sName{
     uint varN;
