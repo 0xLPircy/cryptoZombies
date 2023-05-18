@@ -59,3 +59,8 @@ contract InterfaceName{
 1: address tobecalledcontractaddress = 0xabdiuhfiuwehf32cd32;
 2: InterfaceName InterfacePointer = InterfaceName(tobecalledcontractaddress);
 3: InterfacePointer.functionName(arg);
+
+take multiple return values with a function:
+(a,b,,,e)=fName();
+
+with strings, we have to compare their keccak256 hashes
