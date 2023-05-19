@@ -64,3 +64,5 @@ take multiple return values with a function:
 (a,b,,,e)=fName();
 
 with strings, we have to compare their keccak256 hashes
+
+a smart contract once uploaded to etherium can NOT be modified or changed under any conditions
