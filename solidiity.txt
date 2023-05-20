@@ -70,3 +70,6 @@ a smart contract once uploaded to etherium can NOT be modified or changed under 
 modifiers:
 keyword modifier instead of keyword function. Can't be called directly instead attach the modifier's name at the end of a function definition
 When you call function, the code inside modifier executes first. Then when it hits the _; statement in modifier, it goes back and executes the code inside function.
+
+Time:
+now, return the current unix timestamp of the latest block (the number of seconds that have passed since January 1st 1970). The unix time
