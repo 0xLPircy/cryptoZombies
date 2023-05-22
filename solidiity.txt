@@ -73,3 +73,8 @@ When you call function, the code inside modifier executes first. Then when it hi
 
 Time:
 now, return the current unix timestamp of the latest block (the number of seconds that have passed since January 1st 1970). The unix time
+
+View function
+dont cost gas when called externally cause no transaction created on blockchain.
+If called internally from another function in the same contract, it will still cost gas. As the other function creates a transaction on Ethereum, and will still need to be verified from every node.
+So view functions are only free when they're called externally.
