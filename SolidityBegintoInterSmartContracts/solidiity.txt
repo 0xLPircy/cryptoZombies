@@ -10,9 +10,11 @@ uint, int, string
 unit[n] arrName;
 uint[] dynamicArr;
 
-function fName( uint memory _argName, uint _argName2) public/private/internal/external returns (string memory){
+function fName( uint memory _argName, uint _argName2) public/private/internal/external view pure returns (string memory){
 
 }
+
+ function that doesn't read or modify the variables of the state is called a pure function
 
 public: anyone
 private: perticular contract only
@@ -78,3 +80,6 @@ View function
 dont cost gas when called externally cause no transaction created on blockchain.
 If called internally from another function in the same contract, it will still cost gas. As the other function creates a transaction on Ethereum, and will still need to be verified from every node.
 So view functions are only free when they're called externally.
+
+Arrays
+uint[] memory values = new uint[](3); //in memory
