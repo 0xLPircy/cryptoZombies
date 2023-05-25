@@ -84,3 +84,9 @@ So view functions are only free when they're called externally.
 
 Arrays
 uint[] memory values = new uint[](3); //in memory
+
+Ownable contract taken from the OpenZeppelin Solidity library. OpenZeppelin is a library of secure and community-vetted smart contracts that you can use in your own DApps.
+
+Address payable:
+It is important to note that you cannot transfer Ether to an address unless that address is of type address payable. But the _owner variable is of type uint160, meaning that we must explicitly cast it to address payable.
+address payable _owner = address(uint160(owner()));
