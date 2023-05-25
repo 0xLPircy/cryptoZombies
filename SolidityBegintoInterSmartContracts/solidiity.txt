@@ -14,7 +14,8 @@ function fName( uint memory _argName, uint _argName2) public/private/internal/ex
 
 }
 
- function that doesn't read or modify the variables of the state is called a pure function
+ function that doesn't read or modify the variables of the state is called a pure function,  pure tells us that not only does the function not save any data to the blockchain, but it also doesn't read any data from the blockchain.
+
 
 public: anyone
 private: perticular contract only
