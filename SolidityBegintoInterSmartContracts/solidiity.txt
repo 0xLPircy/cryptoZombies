@@ -90,3 +90,13 @@ Ownable contract taken from the OpenZeppelin Solidity library. OpenZeppelin is a
 Address payable:
 It is important to note that you cannot transfer Ether to an address unless that address is of type address payable. But the _owner variable is of type uint160, meaning that we must explicitly cast it to address payable.
 address payable _owner = address(uint160(owner()));
+
+ERC721
+function transferFrom(address _from, address _to, uint256 _tokenId) external payable;
+//only sender can
+
+and
+
+function approve(address _approved, uint256 _tokenId) external payable;
+function transferFrom(address _from, address _to, uint256 _tokenId) external payable;
+//both sender and reciever,  token's owner first calls approve with the address he wants to transfer to, and the _tokenID . The contract then stores who is approved to take a token, usually in a mapping (uint256 => address). Then, when the owner or the approved address calls transferFrom, the contract checks if that msg.sender is the owner or is approved by the owner to take the token, and if so it transfers the token to him.
