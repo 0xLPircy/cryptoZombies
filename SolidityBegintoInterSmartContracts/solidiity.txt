@@ -135,3 +135,33 @@ contract Math {
 @param and @return are for describing what each parameter and return value of a function are for.
 Note that you don't always have to use all of these tags for every function — all tags are optional. But at the very least, leave a @dev note explaining what each function does.
 
+
+
+
+FRONT END
+github se web3.min.js connected to an html file (can do npm i web3 but dk how that works rn)
+
+Web3 Provider
+Tells our code which node we should be talking to handle our reads and writes.
+third-party service that makes your life easier so you don't need to maintain your own Ethereum node in order to provide a DApp for your users — Infura.
+usage: var web3 = new Web3(new Web3.providers.WebsocketProvider("wss://mainnet.infura.io/ws"));
+
+Metamask:
+lets users securely manage their Ethereum accounts and private keys, and use these accounts to interact with websites that are using Web3.js. 
+Metamask injects their web3 provider into the browser in the global JavaScript object web3. So your app can check to see if web3 exists, and if it does use web3.currentProvider as its provider.
+usage: window.addEventListener('load', function() {
+
+  // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+  if (typeof web3 !== 'undefined') {
+    // Use Mist/MetaMask's provider
+    web3js = new Web3(web3.currentProvider);
+  } else {
+    // Handle the case where the user doesn't have web3. Probably
+    // show them a message telling them to install Metamask in
+    // order to use our app.
+  }
+
+  // Now you can start your app & access web3js freely:
+  startApp()
+
+})
