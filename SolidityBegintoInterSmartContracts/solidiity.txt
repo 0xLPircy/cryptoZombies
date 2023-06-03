@@ -99,7 +99,15 @@ and
 
 function approve(address _approved, uint256 _tokenId) external payable;
 function transferFrom(address _from, address _to, uint256 _tokenId) external payable;
-//both sender and reciever,  token's owner first calls approve with the address he wants to transfer to, and the _tokenID . The contract then stores who is approved to take a token, usually in a mapping (uint256 => address). Then, when the owner or the approved address calls transferFrom, the contract checks if that msg.sender is the owner or is approved by the owner to take the token, and if so it transfers the token to him.
+//both sender and reciever,  token's owner first calls approve with the address he wants to transfer to, and the _tokenID . 
+The contract then stores who is approved to take a token, usually in a mapping (uint256 => address). 
+Then, when the owner or the approved address calls transferFrom, the contract checks if that msg.sender is the owner or is approved by the owner to take the token, and if so it transfers the token to him.
 
 SafeMath
 OpenZeppelin has created a library called SafeMath to prevent underflos and overflows, ie max of uint8 =255 so its +1 is 0
+
+library keyword — libraries are similar to contracts but with a few differences.
+libraries allow us to use the using keyword, which automatically tacks on all of the library's methods to another data type
+
+Assert
+Similar to require, where it will throw an error if false. Require will refund gas when a function fails, assert will not.
