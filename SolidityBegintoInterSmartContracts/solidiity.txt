@@ -163,5 +163,16 @@ usage: window.addEventListener('load', function() {
 
   // Now you can start your app & access web3js freely:
   startApp()
-
 })
+
+Web3.js will need 2 things to talk to your contract: its address and its ABI.
+var myContract = new web3js.eth.Contract(myABI, myContractAddress);
+
+ENDING
+After you finish writing your smart contract, you will compile it and deploy it to Ethereum.
+After you deploy your contract, it gets a fixed address on Ethereum where it will live forever.
+copy this address after deploying in order to talk to your smart contract.
+and
+ABI:Application Binary Interface
+Basically it's a representation of your contracts' methods in JSON format that tells Web3.js how to format function calls in a way your contract will understand.
+When you compile your contract to deploy to Ethereum, he Solidity compiler will give you the ABI, so you'll need to copy and save this in addition to the contract address.
