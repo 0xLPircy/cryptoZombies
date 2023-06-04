@@ -17,7 +17,8 @@ function fName( uint memory _argName, uint _argName2) public/private/internal/ex
  function that doesn't read or modify the variables of the state is called a pure function,  pure tells us that not only does the function not save any data to the blockchain, but it also doesn't read any data from the blockchain.
 
 
-public: anyone
+public: anyone (when ariable public, creates a public "getter" function w/t same name. To look up the zombie with id 15, you would call it as if it were a function: zombies(15).
+)
 private: perticular contract only
 internal: private+inherit contracts too
 external: ONLY outside of contract
@@ -176,3 +177,14 @@ and
 ABI:Application Binary Interface
 Basically it's a representation of your contracts' methods in JSON format that tells Web3.js how to format function calls in a way your contract will understand.
 When you compile your contract to deploy to Ethereum, he Solidity compiler will give you the ABI, so you'll need to copy and save this in addition to the contract address.
+
+Web3.js has two methods to call functions of contract: call and send.
+CALL
+for view and pure functions. It only runs on the local node, and won't create a transaction on the blockchain.
+usage:myContract.methods.myMethod(123).call();
+SEND 
+will create transaction and change data on the blockchain. For any functions that aren't view or pure.
+(will require the user to pay gas, and will pop up their Metamask to prompt them to sign a transaction. When we use Metamask as our web3 provider, this all happens automatically when we call send(), and we don't need to do anything special in our code.)
+usage:myContract.methods.myMethod(123).send(); 
+
+<3 : you can use these to access any function in your sol code!!!! basically everything wow.
