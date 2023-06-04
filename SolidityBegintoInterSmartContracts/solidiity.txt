@@ -1,26 +1,26 @@
-pragma solidity >=0.5.0 <0.6.0;
+pragma solidity >= 0.5.0 < 0.6.0;
 
 contract HelloWorld {
 
 }
 
 uint, int, string
-+, -, /, *, power: **, %
+  +, -, /, *, power: **, %
 
 unit[n] arrName;
 uint[] dynamicArr;
 
-function fName( uint memory _argName, uint _argName2) public/private/internal/external view pure returns (string memory){
+function fName(uint memory _argName, uint _argName2) public / private / internal / external view pure returns(string memory){
 
 }
 
- function that doesn't read or modify the variables of the state is called a pure function,  pure tells us that not only does the function not save any data to the blockchain, but it also doesn't read any data from the blockchain.
+function that doesn't read or modify the variables of the state is called a pure function,  pure tells us that not only does the function not save any data to the blockchain, but it also doesn't read any data from the blockchain.
 
 
-public: anyone (when ariable public, creates a public "getter" function w/t same name. To look up the zombie with id 15, you would call it as if it were a function: zombies(15).
+  public: anyone(when ariable public, creates a public "getter" function w/ t same name.To look up the zombie with id 15, you would call it as if it were a function: zombies(15).
 )
 private: perticular contract only
-internal: private+inherit contracts too
+internal: private + inherit contracts too
 external: ONLY outside of contract
 
 struct sName{
@@ -34,15 +34,15 @@ event eName(uint x, uint y, uint result);
 emit eName(_x, _y, result);
 
 keccak256(abi.encodePacked(_str));???
-////////
+  ////////
 
-mapping (keydatatype => valuedatatype) mapName;
+  mapping(keydatatype => valuedatatype) mapName;
 mapName[key] = value;
 value = mapName[key];
 
-msg.sender, gives address of th person/account who called the function
+msg.sender, gives address of th person / account who called the function
 
-require, function will throw an error and stop executing if some condition is not true:
+  require, function will throw an error and stop executing if some condition is not true:
 require(condition);
 
 inheritance
@@ -53,19 +53,19 @@ importing
 import "filepath.sol";
 
 Storage: stored permanently on the blockchain
-Memory: temporary, erased b/w external function calls
+Memory: temporary, erased b / w external function calls
 
-Interface (to interact with other contract)
-looks like defining a contract, with a few differences. only declaring the functions we want to interact with.
+Interface(to interact with other contract)
+looks like defining a contract, with a few differences.only declaring the functions we want to interact with.
 contract InterfaceName{
-    funtion functionName (uint arg) public return (type);
+    funtion functionName(uint arg) public return (type);
 }
 1: address tobecalledcontractaddress = 0xabdiuhfiuwehf32cd32;
 2: InterfaceName InterfacePointer = InterfaceName(tobecalledcontractaddress);
 3: InterfacePointer.functionName(arg);
 
 take multiple return values with a function:
-(a,b,,,e)=fName();
+  (a, b,,, e)=fName();
 
 with strings, we have to compare their keccak256 hashes
 
@@ -73,23 +73,23 @@ a smart contract once uploaded to etherium can NOT be modified or changed under 
 
 modifiers:
 keyword modifier instead of keyword function. Can't be called directly instead attach the modifier's name at the end of a function definition
-When you call function, the code inside modifier executes first. Then when it hits the _; statement in modifier, it goes back and executes the code inside function.
+When you call function, the code inside modifier executes first.Then when it hits the _; statement in modifier, it goes back and executes the code inside function.
 
 Time:
-now, return the current unix timestamp of the latest block (the number of seconds that have passed since January 1st 1970). The unix time
+now, return the current unix timestamp of the latest block(the number of seconds that have passed since January 1st 1970).The unix time
 
 View function
-dont cost gas when called externally cause no transaction created on blockchain.
-If called internally from another function in the same contract, it will still cost gas. As the other function creates a transaction on Ethereum, and will still need to be verified from every node.
+  dont cost gas when called externally cause no transaction created on blockchain.
+If called internally from another function in the same contract, it will still cost gas.As the other function creates a transaction on Ethereum, and will still need to be verified from every node.
 So view functions are only free when they're called externally.
 
 Arrays
 uint[] memory values = new uint[](3); //in memory
 
-Ownable contract taken from the OpenZeppelin Solidity library. OpenZeppelin is a library of secure and community-vetted smart contracts that you can use in your own DApps.
+Ownable contract taken from the OpenZeppelin Solidity library.OpenZeppelin is a library of secure and community - vetted smart contracts that you can use in your own DApps.
 
 Address payable:
-It is important to note that you cannot transfer Ether to an address unless that address is of type address payable. But the _owner variable is of type uint160, meaning that we must explicitly cast it to address payable.
+It is important to note that you cannot transfer Ether to an address unless that address is of type address payable.But the _owner variable is of type uint160, meaning that we must explicitly cast it to address payable.
 address payable _owner = address(uint160(owner()));
 
 ERC721
@@ -101,19 +101,19 @@ and
 function approve(address _approved, uint256 _tokenId) external payable;
 function transferFrom(address _from, address _to, uint256 _tokenId) external payable;
 //both sender and reciever,  token's owner first calls approve with the address he wants to transfer to, and the _tokenID . 
-The contract then stores who is approved to take a token, usually in a mapping (uint256 => address). 
-Then, when the owner or the approved address calls transferFrom, the contract checks if that msg.sender is the owner or is approved by the owner to take the token, and if so it transfers the token to him.
+The contract then stores who is approved to take a token, usually in a mapping(uint256 => address).
+  Then, when the owner or the approved address calls transferFrom, the contract checks if that msg.sender is the owner or is approved by the owner to take the token, and if so it transfers the token to him.
 
-SafeMath
-OpenZeppelin has created a library called SafeMath to prevent underflos and overflows, ie max of uint8 =255 so its +1 is 0
+    SafeMath
+OpenZeppelin has created a library called SafeMath to prevent underflos and overflows, ie max of uint8 = 255 so its + 1 is 0
 
 library keyword — libraries are similar to contracts but with a few differences.
 libraries allow us to use the using keyword, which automatically tacks on all of the library's methods to another data type
 
 Assert
-Similar to require, where it will throw an error if false. Require will refund gas when a function fails, assert will not.
+Similar to require, where it will throw an error if false.Require will refund gas when a function fails, assert will not.
 
-Commenting
+  Commenting
 usually natspec, is used
  which looks like this:
 
@@ -126,7 +126,7 @@ contract Math {
   /// @param y the second uint.
   /// @return z the product of (x * y)
   /// @dev This function does not currently check for overflows
-  function multiply(uint x, uint y) returns (uint z) {
+  function multiply(uint x, uint y) returns(uint z) {
     // This is just a normal comment, and won't get picked up by natspec
     z = x * y;
   }
@@ -140,31 +140,31 @@ Note that you don't always have to use all of these tags for every function — 
 
 
 FRONT END
-github se web3.min.js connected to an html file (can do npm i web3 but dk how that works rn)
+github se web3.min.js connected to an html file(can do npm i web3 but dk how that works rn)
 
 Web3 Provider
 Tells our code which node we should be talking to handle our reads and writes.
-third-party service that makes your life easier so you don't need to maintain your own Ethereum node in order to provide a DApp for your users — Infura.
+  third - party service that makes your life easier so you don't need to maintain your own Ethereum node in order to provide a DApp for your users — Infura.
 usage: var web3 = new Web3(new Web3.providers.WebsocketProvider("wss://mainnet.infura.io/ws"));
 
 Metamask:
 lets users securely manage their Ethereum accounts and private keys, and use these accounts to interact with websites that are using Web3.js. 
-Metamask injects their web3 provider into the browser in the global JavaScript object web3. So your app can check to see if web3 exists, and if it does use web3.currentProvider as its provider.
-usage: window.addEventListener('load', function() {
+Metamask injects their web3 provider into the browser in the global JavaScript object web3.So your app can check to see if web3 exists, and if it does use web3.currentProvider as its provider.
+  usage: window.addEventListener('load', function () {
 
-  // Checking if Web3 has been injected by the browser (Mist/MetaMask)
-  if (typeof web3 !== 'undefined') {
-    // Use Mist/MetaMask's provider
-    web3js = new Web3(web3.currentProvider);
-  } else {
-    // Handle the case where the user doesn't have web3. Probably
-    // show them a message telling them to install Metamask in
-    // order to use our app.
-  }
+    // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+    if (typeof web3 !== 'undefined') {
+      // Use Mist/MetaMask's provider
+      web3js = new Web3(web3.currentProvider);
+    } else {
+      // Handle the case where the user doesn't have web3. Probably
+      // show them a message telling them to install Metamask in
+      // order to use our app.
+    }
 
-  // Now you can start your app & access web3js freely:
-  startApp()
-})
+    // Now you can start your app & access web3js freely:
+    startApp()
+  })
 
 Web3.js will need 2 things to talk to your contract: its address and its ABI.
 var myContract = new web3js.eth.Contract(myABI, myContractAddress);
@@ -173,18 +173,32 @@ ENDING
 After you finish writing your smart contract, you will compile it and deploy it to Ethereum.
 After you deploy your contract, it gets a fixed address on Ethereum where it will live forever.
 copy this address after deploying in order to talk to your smart contract.
-and
+  and
 ABI:Application Binary Interface
 Basically it's a representation of your contracts' methods in JSON format that tells Web3.js how to format function calls in a way your contract will understand.
 When you compile your contract to deploy to Ethereum, he Solidity compiler will give you the ABI, so you'll need to copy and save this in addition to the contract address.
 
 Web3.js has two methods to call functions of contract: call and send.
-CALL
-for view and pure functions. It only runs on the local node, and won't create a transaction on the blockchain.
-usage:myContract.methods.myMethod(123).call();
+  CALL
+for view and pure functions.It only runs on the local node, and won't create a transaction on the blockchain.
+usage: myContract.methods.myMethod(123).call();
 SEND 
-will create transaction and change data on the blockchain. For any functions that aren't view or pure.
-(will require the user to pay gas, and will pop up their Metamask to prompt them to sign a transaction. When we use Metamask as our web3 provider, this all happens automatically when we call send(), and we don't need to do anything special in our code.)
-usage:myContract.methods.myMethod(123).send(); 
+will create transaction and change data on the blockchain.For any functions that aren't view or pure.
+  (will require the user to pay gas, and will pop up their Metamask to prompt them to sign a transaction.When we use Metamask as our web3 provider, this all happens automatically when we call send(), and we don't need to do anything special in our code.)
+usage: myContract.methods.myMethod(123).send(); 
 
-<3 : you can use these to access any function in your sol code!!!! basically everything wow.
+< 3 : you can use these to access any function in your sol code!!!! basically everything wow.
+
+Get Address in js ??
+var userAccount = web3.eth.accounts[0];
+gets the address of the account active in metamask extention
+
+we can add interval function to make sure if person changes account, our page updates too
+var accountInterval = setInterval(function () {
+  // Check if account has changed
+  if (web3.eth.accounts[0] !== userAccount) {
+    userAccount = web3.eth.accounts[0];
+    // Call some function to update the UI with the new account
+    updateInterface();
+  }
+}, 100);
