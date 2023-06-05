@@ -179,7 +179,7 @@ Basically it's a representation of your contracts' methods in JSON format that t
 When you compile your contract to deploy to Ethereum, he Solidity compiler will give you the ABI, so you'll need to copy and save this in addition to the contract address.
 
 Web3.js has two methods to call functions of contract: call and send.
-  CALL
+CALL
 for view and pure functions.It only runs on the local node, and won't create a transaction on the blockchain.
 usage: myContract.methods.myMethod(123).call();
 SEND 
@@ -202,3 +202,28 @@ var accountInterval = setInterval(function () {
     updateInterface();
   }
 }, 100);
+
+note that while "send"ing There will be a significant delay from when user sends and when that transaction actually takes effect on the blockchain. 
+cause we have to wait for the transaction to be included in a block, block time for Ethereum is on average 15 seconds. 
+If there are a lot of pending transactions on Ethereum or if the user sends too low of a gas price, our transaction may have to wait several blocks to get included, and this could take minutes.
+
+Our function sends a transaction to our Web3 provider, and chains some event listeners:
+"receipt" will fire when the transaction included in a block on Ethereum, which means our zombie has been created and saved on our contract
+"error" will fire if there's an issue that prevented the transaction from being included in a block, such as the user not sending enough gas. We'll want to inform the user in our UI that the transaction didn't go through so they can try again.
+usage: function createRandomZombie(name) {
+  // This is going to take a while, so update the UI to let the user know
+  // the transaction has been sent
+  $("#txStatus").text("Creating new zombie on the blockchain. This may take a while...");
+  // Send the tx to our contract:
+  return cryptoZombies.methods.createRandomZombie(name)
+  .send({ from: userAccount })
+  .on("receipt", function(receipt) {
+    $("#txStatus").text("Successfully created " + name + "!");
+    // Transaction was accepted into the blockchain, let's redraw the UI
+    getZombiesByOwner(userAccount).then(displayZombies);
+  })
+  .on("error", function(error) {
+    // Do something to alert the user their transaction has failed
+    $("#txStatus").text(error);
+  });
+}
