@@ -227,3 +227,9 @@ usage: function createRandomZombie(name) {
     $("#txStatus").text(error);
   });
 }
+
+for payble functions The way to send Ether along with a function is simple, with one caveat: we need to specify how much to send in wei, not Ether.
+there are 10^18 wei in one ether.
+conversion utility that does this for us.
+// This will convert 1 ETH to Wei
+web3js.utils.toWei("1");
