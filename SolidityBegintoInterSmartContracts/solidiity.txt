@@ -233,3 +233,11 @@ there are 10^18 wei in one ether.
 conversion utility that does this for us.
 // This will convert 1 ETH to Wei
 web3js.utils.toWei("1");
+
+In Web3.js, you can *subscribe to an event* so your web3 provider triggers some logic in your code every time it fires:
+usage: cryptoZombies.events.NewZombie()
+.on("data", function(event) {
+  let zombie = event.returnValues;
+  // We can access this event's 3 return values on the `event.returnValues` object:
+  console.log("A new zombie was born!", zombie.zombieId, zombie.name, zombie.dna);
+}).on("error", console.error);
